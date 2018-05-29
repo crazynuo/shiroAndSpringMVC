@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean class="redis.clients.jedis.JedisPool" id="jedisPool">
+        <!--需要指定参数类型，如果需要的话可以指定参数顺序，否则会找错JedisPool的构造方法-->
+        <constructor-arg ref="jedisPoolConfig"/>
+        <constructor-arg type="java.lang.String" value="127.0.0.1"/>
+        <constructor-arg type="int" value="6379"/>
+    </bean>
+    <bean class="redis.clients.jedis.JedisPoolConfig" id="jedisPoolConfig"/>
+</beans>
